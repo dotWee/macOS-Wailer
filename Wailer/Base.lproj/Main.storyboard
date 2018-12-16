@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Debug Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -919,16 +919,16 @@
             </objects>
             <point key="canvasLocation" x="590" y="776"/>
         </scene>
-        <!--View Controller-->
+        <!--Debug View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="DebugViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="286" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="286" height="368"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tnM-aJ-c5U">
-                                <rect key="frame" x="14" y="222" width="258" height="32"/>
+                                <rect key="frame" x="14" y="320" width="258" height="32"/>
                                 <buttonCell key="cell" type="push" title="Open Settings Window" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hOl-ru-gIb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -937,17 +937,85 @@
                                     <action selector="openSettingsWindowActionHandler:" target="XfG-lQ-9wD" id="CTZ-rm-cF9"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a9T-DX-KWu">
+                                <rect key="frame" x="14" y="287" width="258" height="32"/>
+                                <buttonCell key="cell" type="push" title="Last.fm: getAuthToken" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nkf-eP-ciX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="lastFmGetAuthTokenActionHandler:" target="XfG-lQ-9wD" id="qml-Bt-vQW"/>
+                                </connections>
+                            </button>
+                            <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4P-Mk-mPQ">
+                                <rect key="frame" x="20" y="20" width="246" height="188"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0vk-Pn-kPy">
+                                    <rect key="frame" x="1" y="1" width="244" height="186"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Gpc-7a-rrD">
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="186"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="244" height="186"/>
+                                            <size key="maxSize" width="246" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Mug-0s-x35">
+                                    <rect key="frame" x="229" y="1" width="16" height="186"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BKs-BD-lRh">
+                                <rect key="frame" x="14" y="221" width="258" height="32"/>
+                                <buttonCell key="cell" type="push" title="Last.fm: getSession" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7Ia-N8-OCQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="lastFmGetSessionActionHandler:" target="XfG-lQ-9wD" id="LBd-EE-u6B"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9CC-sn-4HC">
+                                <rect key="frame" x="14" y="254" width="258" height="32"/>
+                                <buttonCell key="cell" type="push" title="Last.fm: openAuthUrl" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hNV-C3-MeR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="lastFmOpenAuthUrlActionHandler:" target="XfG-lQ-9wD" id="d7t-KD-A5J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="a9T-DX-KWu" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="0zq-p9-Fw4"/>
+                            <constraint firstItem="9CC-sn-4HC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="4Ca-Rf-SXA"/>
+                            <constraint firstItem="A4P-Mk-mPQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="59k-41-ILo"/>
                             <constraint firstAttribute="trailing" secondItem="tnM-aJ-c5U" secondAttribute="trailing" constant="20" id="6Ej-HW-8pY"/>
+                            <constraint firstAttribute="trailing" secondItem="9CC-sn-4HC" secondAttribute="trailing" constant="20" id="Aeh-2S-boU"/>
+                            <constraint firstAttribute="trailing" secondItem="A4P-Mk-mPQ" secondAttribute="trailing" constant="20" id="Mnb-Bb-gzp"/>
+                            <constraint firstAttribute="trailing" secondItem="a9T-DX-KWu" secondAttribute="trailing" constant="20" id="Nn6-MC-BqM"/>
+                            <constraint firstItem="BKs-BD-lRh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="SuK-B8-bQp"/>
                             <constraint firstItem="tnM-aJ-c5U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="V71-QR-Q0x"/>
                             <constraint firstItem="tnM-aJ-c5U" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="cKv-dY-ke4"/>
+                            <constraint firstAttribute="trailing" secondItem="BKs-BD-lRh" secondAttribute="trailing" constant="20" id="l4Y-U6-bok"/>
+                            <constraint firstItem="A4P-Mk-mPQ" firstAttribute="top" secondItem="BKs-BD-lRh" secondAttribute="bottom" constant="20" id="tS7-6v-2CH"/>
+                            <constraint firstItem="9CC-sn-4HC" firstAttribute="top" secondItem="a9T-DX-KWu" secondAttribute="bottom" constant="12" id="v9x-yt-lBx"/>
+                            <constraint firstItem="BKs-BD-lRh" firstAttribute="top" secondItem="9CC-sn-4HC" secondAttribute="bottom" constant="12" id="yXW-xS-9BA"/>
+                            <constraint firstAttribute="bottom" secondItem="A4P-Mk-mPQ" secondAttribute="bottom" constant="20" id="ybs-hI-Dk3"/>
+                            <constraint firstItem="a9T-DX-KWu" firstAttribute="top" secondItem="tnM-aJ-c5U" secondAttribute="bottom" constant="12" id="zbU-st-JX2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outputTextView" destination="Gpc-7a-rrD" id="1bF-ot-Od2"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="655"/>
+            <point key="canvasLocation" x="-22" y="704"/>
         </scene>
         <!--Libre.fm-->
         <scene sceneID="cOf-Sf-kQw">
