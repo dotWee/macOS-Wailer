@@ -9,6 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    let settingsWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsWindowController") as! SettingsWindowController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func openSettingsWindowActionHandler(_ sender: NSButton) {
+        settingsWindowController.showWindow(self)
+    }
+    
 }
 
