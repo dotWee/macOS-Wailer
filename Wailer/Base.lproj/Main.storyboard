@@ -725,10 +725,10 @@
         <!--Settings Tab View Controller-->
         <scene sceneID="pcS-be-4SC">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="V2o-7P-dMt" customClass="SettingsTabViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="V2o-7P-dMt" customClass="SettingsTabViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem identifier="" id="48U-cc-eRu"/>
-                        <tabViewItem id="cBi-Bv-Nd4"/>
+                        <tabViewItem label="Integrations" identifier="" image="NSComputer" id="48U-cc-eRu"/>
+                        <tabViewItem label="Accounts" image="NSUserAccounts" id="cBi-Bv-Nd4"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="8KB-p4-cli">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -854,7 +854,6 @@
                                         <constraint firstAttribute="trailing" secondItem="a9T-DX-KWu" secondAttribute="trailing" constant="18" id="vmQ-SC-vfX"/>
                                     </constraints>
                                 </view>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                             <box title="Libre.fm" translatesAutoresizingMaskIntoConstraints="NO" id="uOc-Fg-Zwk">
                                 <rect key="frame" x="175" y="162" width="288" height="144"/>
@@ -908,7 +907,6 @@
                                         <constraint firstItem="L6n-GL-oop" firstAttribute="leading" secondItem="HCV-CJ-k1R" secondAttribute="leading" id="zrI-GL-ToC"/>
                                     </constraints>
                                 </view>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                         </subviews>
                         <constraints>
@@ -944,13 +942,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="514" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-VH-6bT">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-VH-6bT">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" id="rzY-C2-Y5A">
                                     <rect key="frame" x="1" y="1" width="158" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="fm5-yo-QSo" id="UWs-EI-gfW">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="fm5-yo-QSo" id="UWs-EI-gfW">
                                             <rect key="frame" x="0.0" y="0.0" width="158" height="298"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
@@ -1089,7 +1087,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="WYS-lc-FOX"/>
                                 </constraints>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                         </subviews>
                         <constraints>
@@ -1114,5 +1111,7 @@
         <image name="LogoLastFm" width="500" height="126"/>
         <image name="LogoLibreFm" width="640" height="213"/>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSComputer" width="32" height="32"/>
+        <image name="NSUserAccounts" width="32" height="32"/>
     </resources>
 </document>
