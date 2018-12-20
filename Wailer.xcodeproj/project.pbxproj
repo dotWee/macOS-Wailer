@@ -9,18 +9,20 @@
 /* Begin PBXBuildFile section */
 		2B97220E7ED7863D61FCA780 /* Pods_Wailer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192FEFFDFC88E004FDA878C8 /* Pods_Wailer.framework */; };
 		3D82161D803B6F36A542A0C1 /* Pods_WailerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4C3A15131D121C0D4346CD /* Pods_WailerTests.framework */; };
+		800DD8BE21C6D1720071B280 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8BD21C6D1720071B280 /* SettingsWindowController.swift */; };
+		800DD8C021C6D1AB0071B280 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8BF21C6D1AB0071B280 /* SettingsTabViewController.swift */; };
+		800DD8CC21C964690071B280 /* ScrobblerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8CB21C964690071B280 /* ScrobblerProtocol.swift */; };
+		800DD8CE21CC05000071B280 /* ScrobblerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8CD21CC05000071B280 /* ScrobblerEndpoint.swift */; };
+		800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D121CC06090071B280 /* LibreFmScrobbler.swift */; };
+		800DD8D521CC06CC0071B280 /* SettingsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */; };
+		800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */; };
 		80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A121C5DE35009E72E4 /* AppDelegate.swift */; };
 		80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A321C5DE35009E72E4 /* DebugViewController.swift */; };
 		80A879A621C5DE36009E72E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A521C5DE36009E72E4 /* Assets.xcassets */; };
 		80A879A921C5DE36009E72E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A721C5DE36009E72E4 /* Main.storyboard */; };
 		80A879B521C5DE36009E72E4 /* WailerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879B421C5DE36009E72E4 /* WailerTests.swift */; };
 		80A879C021C5DE36009E72E4 /* WailerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879BF21C5DE36009E72E4 /* WailerUITests.swift */; };
-		80A879D121C5E9E6009E72E4 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879D021C5E9E6009E72E4 /* SettingsWindowController.swift */; };
-		80A879D321C5EA14009E72E4 /* SettingsLastFmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879D221C5EA14009E72E4 /* SettingsLastFmViewController.swift */; };
-		80A879D521C5F316009E72E4 /* SettingsLibreFmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879D421C5F316009E72E4 /* SettingsLibreFmViewController.swift */; };
-		80A879D721C5F3D1009E72E4 /* SettingsListenBrainzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879D621C5F3D1009E72E4 /* SettingsListenBrainzViewController.swift */; };
-		80A879D921C66AEB009E72E4 /* SettingsStatusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879D821C66AEB009E72E4 /* SettingsStatusCircleView.swift */; };
-		80A879DC21C674D5009E72E4 /* LastFmApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879DB21C674D5009E72E4 /* LastFmApi.swift */; };
+		80A879DC21C674D5009E72E4 /* LastFmScrobbler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879DB21C674D5009E72E4 /* LastFmScrobbler.swift */; };
 		80DB857621C696090046B09E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DB857521C696090046B09E /* Constants.swift */; };
 		E562D15FF5B0C7B10CE4E588 /* Pods_WailerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E96C29C77E0E636AE78FA3 /* Pods_WailerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,13 @@
 		4CD46D5DDAE7C097A6ABD7DF /* Pods-WailerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WailerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WailerUITests/Pods-WailerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A4C3A15131D121C0D4346CD /* Pods_WailerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WailerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6498A903D1C9FB96B453647C /* Pods-Wailer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wailer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wailer/Pods-Wailer.release.xcconfig"; sourceTree = "<group>"; };
+		800DD8BD21C6D1720071B280 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsWindowController.swift; path = Wailer/Settings/SettingsWindowController.swift; sourceTree = SOURCE_ROOT; };
+		800DD8BF21C6D1AB0071B280 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTabViewController.swift; path = Wailer/Settings/SettingsTabViewController.swift; sourceTree = SOURCE_ROOT; };
+		800DD8CB21C964690071B280 /* ScrobblerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblerProtocol.swift; sourceTree = "<group>"; };
+		800DD8CD21CC05000071B280 /* ScrobblerEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblerEndpoint.swift; sourceTree = "<group>"; };
+		800DD8D121CC06090071B280 /* LibreFmScrobbler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibreFmScrobbler.swift; sourceTree = "<group>"; };
+		800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsAccountViewController.swift; path = Wailer/Settings/SettingsAccountViewController.swift; sourceTree = SOURCE_ROOT; };
+		800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsIntegrationsViewController.swift; path = Wailer/Settings/SettingsIntegrationsViewController.swift; sourceTree = SOURCE_ROOT; };
 		80A8799E21C5DE35009E72E4 /* Wailer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wailer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A879A121C5DE35009E72E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80A879A321C5DE35009E72E4 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -63,12 +72,7 @@
 		80A879BB21C5DE36009E72E4 /* WailerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WailerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A879BF21C5DE36009E72E4 /* WailerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WailerUITests.swift; sourceTree = "<group>"; };
 		80A879C121C5DE36009E72E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80A879D021C5E9E6009E72E4 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
-		80A879D221C5EA14009E72E4 /* SettingsLastFmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLastFmViewController.swift; sourceTree = "<group>"; };
-		80A879D421C5F316009E72E4 /* SettingsLibreFmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLibreFmViewController.swift; sourceTree = "<group>"; };
-		80A879D621C5F3D1009E72E4 /* SettingsListenBrainzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListenBrainzViewController.swift; sourceTree = "<group>"; };
-		80A879D821C66AEB009E72E4 /* SettingsStatusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStatusCircleView.swift; sourceTree = "<group>"; };
-		80A879DB21C674D5009E72E4 /* LastFmApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFmApi.swift; sourceTree = "<group>"; };
+		80A879DB21C674D5009E72E4 /* LastFmScrobbler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFmScrobbler.swift; sourceTree = "<group>"; };
 		80DB857521C696090046B09E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		94E96C29C77E0E636AE78FA3 /* Pods_WailerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WailerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0126C25C3B0DA564432CA1A /* Pods-WailerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WailerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WailerTests/Pods-WailerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +129,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		800DD8BC21C6D1500071B280 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */,
+				800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */,
+				800DD8BD21C6D1720071B280 /* SettingsWindowController.swift */,
+				800DD8BF21C6D1AB0071B280 /* SettingsTabViewController.swift */,
+			);
+			name = Settings;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		800DD8D021CC05E20071B280 /* Scrobbler */ = {
+			isa = PBXGroup;
+			children = (
+				800DD8CD21CC05000071B280 /* ScrobblerEndpoint.swift */,
+				800DD8CB21C964690071B280 /* ScrobblerProtocol.swift */,
+				80A879DB21C674D5009E72E4 /* LastFmScrobbler.swift */,
+				800DD8D121CC06090071B280 /* LibreFmScrobbler.swift */,
+				80DB857521C696090046B09E /* Constants.swift */,
+			);
+			path = Scrobbler;
+			sourceTree = "<group>";
+		};
 		80A8799521C5DE35009E72E4 = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +178,8 @@
 		80A879A021C5DE35009E72E4 /* Wailer */ = {
 			isa = PBXGroup;
 			children = (
-				80A879DA21C674B1009E72E4 /* Provider */,
-				80A879CD21C5E9AB009E72E4 /* Settings */,
+				800DD8D021CC05E20071B280 /* Scrobbler */,
+				800DD8BC21C6D1500071B280 /* Settings */,
 				80A879A121C5DE35009E72E4 /* AppDelegate.swift */,
 				80A879A321C5DE35009E72E4 /* DebugViewController.swift */,
 				80A879A521C5DE36009E72E4 /* Assets.xcassets */,
@@ -178,27 +206,6 @@
 				80A879C121C5DE36009E72E4 /* Info.plist */,
 			);
 			path = WailerUITests;
-			sourceTree = "<group>";
-		};
-		80A879CD21C5E9AB009E72E4 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				80A879D021C5E9E6009E72E4 /* SettingsWindowController.swift */,
-				80A879D221C5EA14009E72E4 /* SettingsLastFmViewController.swift */,
-				80A879D421C5F316009E72E4 /* SettingsLibreFmViewController.swift */,
-				80A879D621C5F3D1009E72E4 /* SettingsListenBrainzViewController.swift */,
-				80A879D821C66AEB009E72E4 /* SettingsStatusCircleView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		80A879DA21C674B1009E72E4 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				80A879DB21C674D5009E72E4 /* LastFmApi.swift */,
-				80DB857521C696090046B09E /* Constants.swift */,
-			);
-			path = Provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,15 +438,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A879D321C5EA14009E72E4 /* SettingsLastFmViewController.swift in Sources */,
-				80A879D521C5F316009E72E4 /* SettingsLibreFmViewController.swift in Sources */,
+				800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */,
 				80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */,
-				80A879DC21C674D5009E72E4 /* LastFmApi.swift in Sources */,
-				80A879D121C5E9E6009E72E4 /* SettingsWindowController.swift in Sources */,
-				80A879D921C66AEB009E72E4 /* SettingsStatusCircleView.swift in Sources */,
-				80A879D721C5F3D1009E72E4 /* SettingsListenBrainzViewController.swift in Sources */,
+				80A879DC21C674D5009E72E4 /* LastFmScrobbler.swift in Sources */,
 				80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */,
+				800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */,
+				800DD8CC21C964690071B280 /* ScrobblerProtocol.swift in Sources */,
+				800DD8C021C6D1AB0071B280 /* SettingsTabViewController.swift in Sources */,
+				800DD8CE21CC05000071B280 /* ScrobblerEndpoint.swift in Sources */,
+				800DD8BE21C6D1720071B280 /* SettingsWindowController.swift in Sources */,
 				80DB857621C696090046B09E /* Constants.swift in Sources */,
+				800DD8D521CC06CC0071B280 /* SettingsAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

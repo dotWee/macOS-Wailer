@@ -9,7 +9,7 @@
 import Cocoa
 import Alamofire
 
-class DebugViewController: NSViewController, ScrobblerApiTokenHandshakeProtocol, ScrobblerApiSessionHandshakeProtocol {
+class DebugViewController: NSViewController, ScrobblerTokenHandshakeProtocol, ScrobblerSessionHandshakeProtocol {
     func onSuccess(key: String, name: String, subscriber: Int) {
         self.printLog(line: "onSuccess: key=\(key) name=\(name) subscriber=\(subscriber)")
         self.sessionKey = key
@@ -63,19 +63,19 @@ class DebugViewController: NSViewController, ScrobblerApiTokenHandshakeProtocol,
     @IBAction func lastFmGetAuthTokenActionHandler(_ sender: NSButton) {
         self.clearLog()
         
-        LastFmApi.init().performTokenRequest(handshakeProtocol: self)
+        LastFmScrobbler.init().performTokenRequest(handshakeProtocol: self)
 
     }
     
     @IBAction func lastFmOpenAuthUrlActionHandler(_ sender: NSButton) {
-        LastFmApi.openAuthUrl(token: self.authToken!)
+        LastFmScrobbler.openAuthUrl(token: self.authToken!)
     }
     
     @IBAction func lastFmGetSessionActionHandler(_ sender: NSButton) {
-        LastFmApi.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
+        LastFmScrobbler.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
     }
     @IBAction func libreFmGetAuthTokenActionHandler(_ sender: NSButton) {
-        LibreFmApi.init().performTokenRequest(handshakeProtocol: self)
+        LibreFmScrobbler.init().performTokenRequest(handshakeProtocol: self)
         
         /*
         LibreFmApi.getAuthToken().responseJSON { response in
@@ -99,13 +99,13 @@ class DebugViewController: NSViewController, ScrobblerApiTokenHandshakeProtocol,
     }
     
     @IBAction func libreFmOpenAuthUrlActionHandler(_ sender: NSButton) {
-        LibreFmApi.openAuthUrl(token: self.authToken!)
+        LibreFmScrobbler.openAuthUrl(token: self.authToken!)
     }
     
     @IBAction func libreFmGetSessionActionHandler(_ sender: NSButton) {
         self.clearLog()
         
-        LibreFmApi.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
+        LibreFmScrobbler.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
         
         /*
         LibreFmApi.getSession(token: self.libreFmAuthToken!).responseJSON { response in

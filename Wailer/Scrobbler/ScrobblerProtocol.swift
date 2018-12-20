@@ -10,8 +10,9 @@ import Cocoa
 import Alamofire
 import CommonCrypto
 
-protocol ScrobblerApiProtocol {
+protocol ScrobblerProtocol {
     static var name: String { get }
+    static var endpoint: ScrobblerEndpoint { get }
     
     static var urlAuth: String { get }
     static var urlHandshake: String { get }
@@ -27,14 +28,14 @@ protocol ScrobblerApiProtocol {
     static func openAuthUrl(token: String)
 }
 
-protocol ScrobblerApiTokenHandshakeProtocol {
+protocol ScrobblerTokenHandshakeProtocol {
     func onSuccess(token: String)
 
     func onError(code: Int, message: String)
     func onError(result: Result<Any>)
 }
 
-extension ScrobblerApiProtocol {
+extension ScrobblerProtocol {
     static func openAuthUrl(token: String) {
         let url = self.urlAuth + token
         NSWorkspace.shared.open(URL.init(string: url)!)
@@ -69,11 +70,11 @@ extension ScrobblerApiProtocol {
         }
         
         print("Signature: \(signature)")
-        signature.append(Constants.API_SECRET)
+        signature.append(Constants.LASTFM_API_SECRET)
         return md5(signature)!
     }
     
-    func performTokenRequest(handshakeProtocol: ScrobblerApiTokenHandshakeProtocol) {
+    func performTokenRequest(handshakeProtocol: ScrobblerTokenHandshakeProtocol) {
         
         self.getAuthToken().responseJSON { response in
             let json = response.result.value as! [String: AnyObject?]
@@ -90,7 +91,7 @@ extension ScrobblerApiProtocol {
         }
     }
     
-    func performSessionRequest(handshakeProtocol: ScrobblerApiSessionHandshakeProtocol, token: String) {
+    func performSessionRequest(handshakeProtocol: ScrobblerSessionHandshakeProtocol, token: String) {
         
         self.getSession(token: token).responseJSON { response in
             let json = response.result.value as! [String: AnyObject?]
@@ -117,7 +118,7 @@ extension ScrobblerApiProtocol {
     }
 }
 
-protocol ScrobblerApiSessionHandshakeProtocol {
+protocol ScrobblerSessionHandshakeProtocol {
     func onSuccess(key: String, name: String, subscriber: Int);
     func onError(code: Int, message: String)
     func onError(result: Result<Any>)
