@@ -132,3 +132,6 @@ iOSInjectionProject/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+## Private keys
+Wailer/Scrobbler/Constants.swift
