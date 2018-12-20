@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ScrobblerEndpoint {
-    case lastfm
-    case librefm
+enum ScrobblerEndpoint: Int {
+    case lastfm = 1
+    case librefm = 2
 }

@@ -14,10 +14,13 @@ class AccountsViewController: NSViewController {
     
     lazy var choosenScrobbler: ScrobblerEndpoint = ScrobblerEndpoint.lastfm
     var scrobbler: ScrobblerProtocol?
+    var scrobblerToken: String?
     
-    lazy var authorizeAccountViewController: AuthorizeAccountViewController = {
-        return self.storyboard!.instantiateController(withIdentifier: "AuthorizeAccountViewController")
-            as! AuthorizeAccountViewController
+    var authorizedAlert: NSAlert = NSAlert.init()
+    
+    lazy var authorizeAccountViewController: ConfirmAuthorizationViewController = {
+        return self.storyboard!.instantiateController(withIdentifier: "ConfirmAuthorizationViewController")
+            as! ConfirmAuthorizationViewController
     }()
 
     override func viewDidLoad() {
@@ -39,6 +42,9 @@ class AccountsViewController: NSViewController {
         print("AccountsViewController: dismiss \(viewController)")
     }
     
+    func displayAuthorizationPerformedAlert() {
+        
+    }
     
     func addAccountActionHandler() {
         
@@ -67,6 +73,9 @@ extension AccountsViewController: ScrobblerTokenHandshakeProtocol {
         case .librefm:
             LibreFmScrobbler.openAuthUrl(token: token)
         }
+        
+        self.scrobblerToken = token
+        
         
         // 3. Show confirm auth sheet
         authorizeAccountViewController.scrobbler = self.scrobbler

@@ -937,7 +937,7 @@
         <!--Accounts-->
         <scene sceneID="QHs-XH-ZtE">
             <objects>
-                <viewController title="Accounts" id="GSs-em-Z0N" customClass="SettingsAccountViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Accounts" id="GSs-em-Z0N" customClass="AccountsViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RLw-jQ-JAg">
                         <rect key="frame" x="0.0" y="0.0" width="514" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1050,11 +1050,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="9zz-rz-l0j"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="cHk-Db-Y52"/>
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="LogoLastFm" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="xvI-Zp-vpd">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="addLastFmAccountActionHandler:" target="GSs-em-Z0N" id="Rwb-gV-vS9"/>
+                                                    </connections>
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="cPq-k0-HlD" userLabel="Libre.fm Image Button">
                                                     <rect key="frame" x="154" y="0.0" width="120" height="40"/>
@@ -1065,6 +1069,9 @@
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="addLibreFmAccountActionHandler:" target="GSs-em-Z0N" id="7q8-tf-g0W"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <visibilityPriorities>
@@ -1105,6 +1112,70 @@
                 <customObject id="KYh-6v-fcJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="302" y="1146"/>
+        </scene>
+        <!--Confirm Authorization View Controller-->
+        <scene sceneID="3AQ-T9-z4g">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmAuthorizationViewController" id="gpL-SS-SKK" customClass="ConfirmAuthorizationViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="0fB-6K-6Sd">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="120"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Bxj-1R-bfx">
+                                <rect key="frame" x="32" y="56" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="f73-Uj-MlP">
+                                <rect key="frame" x="74" y="49" width="227" height="51"/>
+                                <textFieldCell key="cell" selectable="YES" title="Please login into your account and authorize Wailer for your service. Press Continue when done." id="Bdw-kL-E4a">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GZO-23-3LE">
+                                <rect key="frame" x="198" y="13" width="95" height="32"/>
+                                <buttonCell key="cell" type="push" title="Continue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="w4H-60-NbG">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="continueButtonActionHandler:" target="gpL-SS-SKK" id="qwC-4v-Wa8"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EkT-Mi-B4v">
+                                <rect key="frame" x="116" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a5n-rB-KFD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelButtonActionHandler:" target="gpL-SS-SKK" id="LOm-Kk-0LM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GZO-23-3LE" secondAttribute="bottom" constant="20" id="4w3-1H-vwb"/>
+                            <constraint firstItem="f73-Uj-MlP" firstAttribute="top" secondItem="0fB-6K-6Sd" secondAttribute="top" constant="20" id="6Zp-Sv-d5z"/>
+                            <constraint firstAttribute="bottom" secondItem="EkT-Mi-B4v" secondAttribute="bottom" constant="20" id="9MG-G1-zNA"/>
+                            <constraint firstItem="Bxj-1R-bfx" firstAttribute="leading" secondItem="0fB-6K-6Sd" secondAttribute="leading" constant="32" id="BFz-aK-lNC"/>
+                            <constraint firstItem="GZO-23-3LE" firstAttribute="leading" secondItem="EkT-Mi-B4v" secondAttribute="trailing" constant="12" id="EHO-0L-U0w"/>
+                            <constraint firstItem="EkT-Mi-B4v" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f73-Uj-MlP" secondAttribute="bottom" constant="8" id="F7v-h2-O6D"/>
+                            <constraint firstAttribute="trailing" secondItem="GZO-23-3LE" secondAttribute="trailing" constant="32" id="O61-BU-yBZ"/>
+                            <constraint firstItem="GZO-23-3LE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f73-Uj-MlP" secondAttribute="bottom" constant="8" id="bx8-rP-BAY"/>
+                            <constraint firstItem="EkT-Mi-B4v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bxj-1R-bfx" secondAttribute="trailing" constant="12" id="gMU-d8-Ts5"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bxj-1R-bfx" secondAttribute="bottom" constant="32" id="i5n-Pq-4IB"/>
+                            <constraint firstItem="f73-Uj-MlP" firstAttribute="leading" secondItem="Bxj-1R-bfx" secondAttribute="trailing" constant="12" id="jO4-HN-fjl"/>
+                            <constraint firstItem="Bxj-1R-bfx" firstAttribute="top" secondItem="0fB-6K-6Sd" secondAttribute="top" constant="32" id="qi7-pz-J4n"/>
+                            <constraint firstAttribute="trailing" secondItem="f73-Uj-MlP" secondAttribute="trailing" constant="20" id="z3l-6G-izJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="n3Q-NF-uJ4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="1432"/>
         </scene>
     </scenes>
     <resources>
