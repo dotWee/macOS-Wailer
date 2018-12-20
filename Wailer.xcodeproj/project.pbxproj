@@ -14,8 +14,9 @@
 		800DD8CC21C964690071B280 /* ScrobblerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8CB21C964690071B280 /* ScrobblerProtocol.swift */; };
 		800DD8CE21CC05000071B280 /* ScrobblerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8CD21CC05000071B280 /* ScrobblerEndpoint.swift */; };
 		800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D121CC06090071B280 /* LibreFmScrobbler.swift */; };
-		800DD8D521CC06CC0071B280 /* SettingsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */; };
+		800DD8D521CC06CC0071B280 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D321CC06CC0071B280 /* AccountsViewController.swift */; };
 		800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */; };
+		800DD8D821CC0CAA0071B280 /* AuthorizeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D721CC0CAA0071B280 /* AuthorizeAccountViewController.swift */; };
 		80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A121C5DE35009E72E4 /* AppDelegate.swift */; };
 		80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A321C5DE35009E72E4 /* DebugViewController.swift */; };
 		80A879A621C5DE36009E72E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A521C5DE36009E72E4 /* Assets.xcassets */; };
@@ -57,8 +58,9 @@
 		800DD8CB21C964690071B280 /* ScrobblerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblerProtocol.swift; sourceTree = "<group>"; };
 		800DD8CD21CC05000071B280 /* ScrobblerEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblerEndpoint.swift; sourceTree = "<group>"; };
 		800DD8D121CC06090071B280 /* LibreFmScrobbler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibreFmScrobbler.swift; sourceTree = "<group>"; };
-		800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsAccountViewController.swift; path = Wailer/Settings/SettingsAccountViewController.swift; sourceTree = SOURCE_ROOT; };
+		800DD8D321CC06CC0071B280 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsViewController.swift; path = Wailer/Settings/AccountsViewController.swift; sourceTree = SOURCE_ROOT; };
 		800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsIntegrationsViewController.swift; path = Wailer/Settings/SettingsIntegrationsViewController.swift; sourceTree = SOURCE_ROOT; };
+		800DD8D721CC0CAA0071B280 /* AuthorizeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthorizeAccountViewController.swift; path = Wailer/Settings/AuthorizeAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		80A8799E21C5DE35009E72E4 /* Wailer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wailer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A879A121C5DE35009E72E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80A879A321C5DE35009E72E4 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -132,10 +134,11 @@
 		800DD8BC21C6D1500071B280 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				800DD8D321CC06CC0071B280 /* SettingsAccountViewController.swift */,
 				800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */,
 				800DD8BD21C6D1720071B280 /* SettingsWindowController.swift */,
 				800DD8BF21C6D1AB0071B280 /* SettingsTabViewController.swift */,
+				800DD8D321CC06CC0071B280 /* AccountsViewController.swift */,
+				800DD8D721CC0CAA0071B280 /* AuthorizeAccountViewController.swift */,
 			);
 			name = Settings;
 			path = "New Group";
@@ -440,6 +443,7 @@
 			files = (
 				800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */,
 				80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */,
+				800DD8D821CC0CAA0071B280 /* AuthorizeAccountViewController.swift in Sources */,
 				80A879DC21C674D5009E72E4 /* LastFmScrobbler.swift in Sources */,
 				80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */,
 				800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */,
@@ -448,7 +452,7 @@
 				800DD8CE21CC05000071B280 /* ScrobblerEndpoint.swift in Sources */,
 				800DD8BE21C6D1720071B280 /* SettingsWindowController.swift in Sources */,
 				80DB857621C696090046B09E /* Constants.swift in Sources */,
-				800DD8D521CC06CC0071B280 /* SettingsAccountViewController.swift in Sources */,
+				800DD8D521CC06CC0071B280 /* AccountsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

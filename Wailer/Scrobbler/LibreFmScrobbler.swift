@@ -14,7 +14,7 @@ import Alamofire
 class LibreFmScrobbler: ScrobblerProtocol {
     static var endpoint: ScrobblerEndpoint = ScrobblerEndpoint.librefm
     
-    static var name: String = "Libre.fm"
+    var name: String = "Libre.fm"
     
     static var urlAuth: String = "http://libre.fm/api/auth/?api_key=" + Constants.LASTFM_API_KEY + "&token="
     

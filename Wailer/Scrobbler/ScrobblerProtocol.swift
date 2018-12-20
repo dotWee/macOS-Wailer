@@ -11,7 +11,7 @@ import Alamofire
 import CommonCrypto
 
 protocol ScrobblerProtocol {
-    static var name: String { get }
+    var name: String { get }
     static var endpoint: ScrobblerEndpoint { get }
     
     static var urlAuth: String { get }

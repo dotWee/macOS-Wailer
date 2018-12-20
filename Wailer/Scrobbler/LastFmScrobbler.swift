@@ -13,7 +13,7 @@ import CommonCrypto
 class LastFmScrobbler: ScrobblerProtocol {
     static var endpoint: ScrobblerEndpoint = ScrobblerEndpoint.lastfm
     
-    static var name: String = "Last.fm"
+    var name: String = "Last.fm"
     static var urlHandshake: String = "http://post.audioscrobbler.com/?hs=true"
     static var urlSignUp: String = "https://www.last.fm/join"
     static var urlProfile: String = "https://www.last.fm/user/"
