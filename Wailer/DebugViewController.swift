@@ -7,13 +7,31 @@
 //
 
 import Cocoa
+import Alamofire
 
-class DebugViewController: NSViewController {
+class DebugViewController: NSViewController, ScrobblerApiTokenHandshakeProtocol, ScrobblerApiSessionHandshakeProtocol {
+    func onSuccess(key: String, name: String, subscriber: Int) {
+        self.printLog(line: "onSuccess: key=\(key) name=\(name) subscriber=\(subscriber)")
+        self.sessionKey = key
+    }
+    
+    func onSuccess(token: String) {
+        self.printLog(line: "onSuccess: token=\(token)")
+        self.authToken = token
+    }
+    
+    func onError(code: Int, message: String) {
+        self.printLog(line: "onError: code=\(code) message=\(message)")
+    }
+    
+    func onError(result: Result<Any>) {
+        self.printLog(line: "onError: result=\(result)")
+    }
     
     let settingsWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsWindowController") as! SettingsWindowController
     
-    var lastFmAuthToken: String?
-    var lastFmSessionKey: String?
+    var authToken: String?
+    var sessionKey: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +63,22 @@ class DebugViewController: NSViewController {
     @IBAction func lastFmGetAuthTokenActionHandler(_ sender: NSButton) {
         self.clearLog()
         
-        LastFmApi.getAuthToken().responseJSON { response in
+        LastFmApi.init().performTokenRequest(handshakeProtocol: self)
+
+    }
+    
+    @IBAction func lastFmOpenAuthUrlActionHandler(_ sender: NSButton) {
+        LastFmApi.openAuthUrl(token: self.authToken!)
+    }
+    
+    @IBAction func lastFmGetSessionActionHandler(_ sender: NSButton) {
+        LastFmApi.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
+    }
+    @IBAction func libreFmGetAuthTokenActionHandler(_ sender: NSButton) {
+        LibreFmApi.init().performTokenRequest(handshakeProtocol: self)
+        
+        /*
+        LibreFmApi.getAuthToken().responseJSON { response in
             self.printLog(line: "Request: \(String(describing: response.request))")   // original url request
             self.printLog(line: "Response: \(String(describing: response.response))") // http url response
             self.printLog(line: "Result: \(response.result)")                         // response serialization result
@@ -54,7 +87,7 @@ class DebugViewController: NSViewController {
             
             if let token = json["token"] as! String? {
                 self.printLog(line: "Token: \(token)")
-                self.lastFmAuthToken = token
+                self.libreFmAuthToken = token
             } else if let error = json["error"] as! Int? {
                 let message = json["message"] as! String
                 self.printLog(line: "Error \(error): \(message)")
@@ -62,16 +95,20 @@ class DebugViewController: NSViewController {
                 // Nope
             }
         }
+        */
     }
     
-    @IBAction func lastFmOpenAuthUrlActionHandler(_ sender: NSButton) {
-        LastFmApi.openAuthUrl(token: self.lastFmAuthToken!)
+    @IBAction func libreFmOpenAuthUrlActionHandler(_ sender: NSButton) {
+        LibreFmApi.openAuthUrl(token: self.authToken!)
     }
     
-    @IBAction func lastFmGetSessionActionHandler(_ sender: NSButton) {
+    @IBAction func libreFmGetSessionActionHandler(_ sender: NSButton) {
         self.clearLog()
         
-        LastFmApi.getSession(token: self.lastFmAuthToken!).responseJSON { response in
+        LibreFmApi.init().performSessionRequest(handshakeProtocol: self, token: self.authToken!)
+        
+        /*
+        LibreFmApi.getSession(token: self.libreFmAuthToken!).responseJSON { response in
             self.printLog(line: "Request: \(String(describing: response.request))")   // original url request
             self.printLog(line: "Response: \(String(describing: response.response))") // http url response
             self.printLog(line: "Result: \(response.result)")                         // response serialization result
@@ -81,7 +118,7 @@ class DebugViewController: NSViewController {
             
             if let session = json["session"] as AnyObject? {
                 let sessionKey = session["key"] as! String
-                self.lastFmSessionKey = sessionKey
+                self.libreFmSessionKey = sessionKey
                 self.printLog(line: "Session Key: \(sessionKey)")
                 
                 let sessionName = session["name"] as! String
@@ -96,6 +133,8 @@ class DebugViewController: NSViewController {
                 // Nope
             }
         }
+        */
     }
+    
 }
 
