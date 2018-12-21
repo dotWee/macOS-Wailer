@@ -37,15 +37,15 @@
                             <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIe-NQ-GIS">
                                 <rect key="frame" x="20" y="169" width="360" height="92"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Nls-BN-xiM">
-                                    <rect key="frame" x="1" y="1" width="343" height="90"/>
+                                    <rect key="frame" x="1" y="1" width="358" height="90"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="EtU-xy-dEe">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="90"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="343" height="90"/>
+                                            <size key="minSize" width="358" height="90"/>
                                             <size key="maxSize" width="675" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="XAv-4a-zKX"/>
                                 </constraints>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wuW-fE-Ahx">
-                                    <rect key="frame" x="344" y="1" width="15" height="90"/>
+                                    <rect key="frame" x="343" y="1" width="16" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -178,17 +178,23 @@
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ydj-hY-zQb">
                                             <rect key="frame" x="14" y="46" width="142" height="32"/>
-                                            <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eGl-dl-SXo">
+                                            <buttonCell key="cell" type="push" title="printSpotifyTrack" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eGl-dl-SXo">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="buttonPrintSpotifyTrack:" target="v2i-dy-8Ie" id="AVR-Hy-SdI"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JLb-y6-UI1">
                                             <rect key="frame" x="14" y="13" width="142" height="32"/>
-                                            <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pni-pH-yjW">
+                                            <buttonCell key="cell" type="push" title="printiTunesTrack" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pni-pH-yjW">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="buttonPrintiTunesTrack:" target="v2i-dy-8Ie" id="6X3-3b-dgE"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-nW-zdp">
                                             <rect key="frame" x="14" y="79" width="142" height="32"/>

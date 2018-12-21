@@ -8,6 +8,7 @@
 
 import Cocoa
 import Alamofire
+import ScriptingBridge
 
 class DebugViewController: NSViewController {
     
@@ -64,6 +65,14 @@ class DebugViewController: NSViewController {
     }
     
     @IBAction func buttonWindowsSettings(_ sender: NSButton) {
+    }
+    
+    @IBAction func buttonPrintSpotifyTrack(_ sender: NSButton) {
+        SpotifyBridge.init().printCurrentTrack()
+    }
+    
+    @IBAction func buttonPrintiTunesTrack(_ sender: NSButton) {
+        iTunesBridge.init().printCurrentTrack()
     }
 }
 
