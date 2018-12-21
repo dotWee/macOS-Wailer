@@ -19,10 +19,12 @@
 		800DD8D821CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D721CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift */; };
 		803CB47121CC4855000D15B9 /* Wailer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 803CB46F21CC4855000D15B9 /* Wailer.xcdatamodeld */; };
 		803CB4AF21CC5D5E000D15B9 /* AccountsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CB4AE21CC5D5E000D15B9 /* AccountsDataManager.swift */; };
+		803CB4B421CC7C6E000D15B9 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CB4B321CC7C6E000D15B9 /* DebugViewController.swift */; };
+		803CB4B621CC80CA000D15B9 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 803CB4B521CC80CA000D15B9 /* Debug.storyboard */; };
+		803CB4B821CC8286000D15B9 /* DebugWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CB4B721CC8286000D15B9 /* DebugWindowController.swift */; };
+		803CB4BA21CC8342000D15B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 803CB4B921CC8341000D15B9 /* Main.storyboard */; };
 		80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A121C5DE35009E72E4 /* AppDelegate.swift */; };
-		80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A321C5DE35009E72E4 /* DebugViewController.swift */; };
 		80A879A621C5DE36009E72E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A521C5DE36009E72E4 /* Assets.xcassets */; };
-		80A879A921C5DE36009E72E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A721C5DE36009E72E4 /* Main.storyboard */; };
 		80A879B521C5DE36009E72E4 /* WailerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879B421C5DE36009E72E4 /* WailerTests.swift */; };
 		80A879C021C5DE36009E72E4 /* WailerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879BF21C5DE36009E72E4 /* WailerUITests.swift */; };
 		80A879DC21C674D5009E72E4 /* LastFmScrobbler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879DB21C674D5009E72E4 /* LastFmScrobbler.swift */; };
@@ -65,11 +67,13 @@
 		800DD8D721CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmAuthorizationViewController.swift; path = Wailer/Settings/ConfirmAuthorizationViewController.swift; sourceTree = SOURCE_ROOT; };
 		803CB47021CC4855000D15B9 /* Wailer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wailer.xcdatamodel; sourceTree = "<group>"; };
 		803CB4AE21CC5D5E000D15B9 /* AccountsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsDataManager.swift; sourceTree = "<group>"; };
+		803CB4B321CC7C6E000D15B9 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
+		803CB4B521CC80CA000D15B9 /* Debug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
+		803CB4B721CC8286000D15B9 /* DebugWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugWindowController.swift; sourceTree = "<group>"; };
+		803CB4B921CC8341000D15B9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		80A8799E21C5DE35009E72E4 /* Wailer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wailer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A879A121C5DE35009E72E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80A879A321C5DE35009E72E4 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		80A879A521C5DE36009E72E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		80A879A821C5DE36009E72E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80A879AA21C5DE36009E72E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A879AB21C5DE36009E72E4 /* Wailer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wailer.entitlements; sourceTree = "<group>"; };
 		80A879B021C5DE36009E72E4 /* WailerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WailerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +172,16 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		803CB4B021CC7B60000D15B9 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				803CB4B321CC7C6E000D15B9 /* DebugViewController.swift */,
+				803CB4B521CC80CA000D15B9 /* Debug.storyboard */,
+				803CB4B721CC8286000D15B9 /* DebugWindowController.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		80A8799521C5DE35009E72E4 = {
 			isa = PBXGroup;
 			children = (
@@ -193,13 +207,13 @@
 		80A879A021C5DE35009E72E4 /* Wailer */ = {
 			isa = PBXGroup;
 			children = (
+				803CB4B021CC7B60000D15B9 /* Debug */,
 				803CB4AD21CC5D46000D15B9 /* CoreData */,
 				800DD8D021CC05E20071B280 /* Scrobbler */,
 				800DD8BC21C6D1500071B280 /* Settings */,
 				80A879A121C5DE35009E72E4 /* AppDelegate.swift */,
-				80A879A321C5DE35009E72E4 /* DebugViewController.swift */,
 				80A879A521C5DE36009E72E4 /* Assets.xcassets */,
-				80A879A721C5DE36009E72E4 /* Main.storyboard */,
+				803CB4B921CC8341000D15B9 /* Main.storyboard */,
 				80A879AA21C5DE36009E72E4 /* Info.plist */,
 				80A879AB21C5DE36009E72E4 /* Wailer.entitlements */,
 				803CB46F21CC4855000D15B9 /* Wailer.xcdatamodeld */,
@@ -338,8 +352,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803CB4BA21CC8342000D15B9 /* Main.storyboard in Resources */,
 				80A879A621C5DE36009E72E4 /* Assets.xcassets in Resources */,
-				80A879A921C5DE36009E72E4 /* Main.storyboard in Resources */,
+				803CB4B621CC80CA000D15B9 /* Debug.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,9 +473,10 @@
 				800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */,
 				803CB4AF21CC5D5E000D15B9 /* AccountsDataManager.swift in Sources */,
 				803CB47121CC4855000D15B9 /* Wailer.xcdatamodeld in Sources */,
-				80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */,
 				800DD8D821CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift in Sources */,
 				80A879DC21C674D5009E72E4 /* LastFmScrobbler.swift in Sources */,
+				803CB4B421CC7C6E000D15B9 /* DebugViewController.swift in Sources */,
+				803CB4B821CC8286000D15B9 /* DebugWindowController.swift in Sources */,
 				80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */,
 				800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */,
 				800DD8CC21C964690071B280 /* ScrobblerProtocol.swift in Sources */,
@@ -502,17 +518,6 @@
 			targetProxy = 80A879BC21C5DE36009E72E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		80A879A721C5DE36009E72E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80A879A821C5DE36009E72E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		80A879C221C5DE36009E72E4 /* Debug */ = {

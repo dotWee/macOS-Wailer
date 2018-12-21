@@ -11,8 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        let debugWindowController = NSStoryboard(name: "Debug", bundle: nil).instantiateInitialController() as! DebugWindowController
+        debugWindowController.showWindow(self)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
