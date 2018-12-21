@@ -62,48 +62,21 @@ class ConfirmAuthorizationViewController: NSViewController {
 
 extension ConfirmAuthorizationViewController: ScrobblerSessionHandshakeProtocol {
     func onSuccess(key: String, name: String, subscriber: Int) {
-        print("ConfirmAuthorizationViewController: onSuccess key=\(key) name=\(name) subscriber=\(subscriber)")
+        print("ConfirmAuthorizationViewController: onSuccess key=\(key) name=\(name) subscriber=\(subscriber) token=\(self.scrobblerToken) scrobbler=\(self.choosenScrobbler)")
         
-        // TODO Safe details
-        guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else {
-            // TODO Show could not save alert
-            self.displayUnexpectedErrorAlert(informaiveText: "Could not prepare dependencies for CoreData!")
-            return
-        }
-        
-        let context = appDelegate.persistentContainer.viewContext
-        let entityName = "Accounts"
-        guard let newEntity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
-            return
-        }
-        
-        let newAccount = NSManagedObject(entity: newEntity, insertInto: context)
-        
-        let accountId = UUID().uuidString
-        newAccount.setValue(accountId, forKey: "accountId")
-        newAccount.setValue(key, forKey: "key")
-        newAccount.setValue(self.choosenScrobbler, forKey: "scrobbler")
-        newAccount.setValue(self.scrobblerToken, forKey: "token")
-        newAccount.setValue(name, forKey: "username")
-        
-        print("ConfirmAuthorizationViewController: newAccount=\(newAccount)")
-        
-        do {
-            try context.save()
-            print("Saved account with uid=\(accountId)")
-            
+        let newAccountUid = AccountsDataManager.saveNewAccount(key: key, token: self.scrobblerToken!, username: name, scrobbler: self.choosenScrobbler!)
+        if newAccountUid != nil {
             // Show saved account alert
             alert.alertStyle = NSAlert.Style.informational
             alert.messageText = "Successfully authorized as \(name) for \(scrobbler!.name)."
             alert.informativeText = "Wailer will now scrobble to your \(scrobbler!.name) account."
             self.displayAlert()
-        } catch {
-            print(error)
+        } else {
             
             // Show saving error alert
             alert.alertStyle = NSAlert.Style.critical
             alert.messageText = "Error saving account details."
-            alert.informativeText = "Received session data looks good, but an error regaring saving appeared. Error description: \(error.localizedDescription)"
+            alert.informativeText = "Received session data looks good, but an error regaring saving appeared."
             self.displayAlert()
         }
     }

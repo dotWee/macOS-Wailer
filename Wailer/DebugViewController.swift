@@ -28,6 +28,18 @@ class DebugViewController: NSViewController, ScrobblerTokenHandshakeProtocol, Sc
         self.printLog(line: "onError: result=\(result)")
     }
     
+    @IBAction func buttonTestCoreDataActionHandler(_ sender: NSButton) {
+        
+        let result = AccountsDataManager.getAllAccountsSorted()
+        
+        self.printLog(line: "buttonTestCoreDataActionHandler: result=\(result)")
+        /*
+        for data in result! {
+            printLog(line: data.value(forKey: "accountId") as! String)
+        }
+        */
+    }
+    
     let settingsWindowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SettingsWindowController") as! SettingsWindowController
     
     var authToken: String?

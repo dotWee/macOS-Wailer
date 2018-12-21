@@ -18,6 +18,7 @@
 		800DD8D621CC06CC0071B280 /* SettingsIntegrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */; };
 		800DD8D821CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DD8D721CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift */; };
 		803CB47121CC4855000D15B9 /* Wailer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 803CB46F21CC4855000D15B9 /* Wailer.xcdatamodeld */; };
+		803CB4AF21CC5D5E000D15B9 /* AccountsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CB4AE21CC5D5E000D15B9 /* AccountsDataManager.swift */; };
 		80A879A221C5DE35009E72E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A121C5DE35009E72E4 /* AppDelegate.swift */; };
 		80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A879A321C5DE35009E72E4 /* DebugViewController.swift */; };
 		80A879A621C5DE36009E72E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A879A521C5DE36009E72E4 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		800DD8D421CC06CC0071B280 /* SettingsIntegrationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsIntegrationsViewController.swift; path = Wailer/Settings/SettingsIntegrationsViewController.swift; sourceTree = SOURCE_ROOT; };
 		800DD8D721CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmAuthorizationViewController.swift; path = Wailer/Settings/ConfirmAuthorizationViewController.swift; sourceTree = SOURCE_ROOT; };
 		803CB47021CC4855000D15B9 /* Wailer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wailer.xcdatamodel; sourceTree = "<group>"; };
+		803CB4AE21CC5D5E000D15B9 /* AccountsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsDataManager.swift; sourceTree = "<group>"; };
 		80A8799E21C5DE35009E72E4 /* Wailer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wailer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A879A121C5DE35009E72E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80A879A321C5DE35009E72E4 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			path = Scrobbler;
 			sourceTree = "<group>";
 		};
+		803CB4AD21CC5D46000D15B9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				803CB4AE21CC5D5E000D15B9 /* AccountsDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		80A8799521C5DE35009E72E4 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		80A879A021C5DE35009E72E4 /* Wailer */ = {
 			isa = PBXGroup;
 			children = (
+				803CB4AD21CC5D46000D15B9 /* CoreData */,
 				800DD8D021CC05E20071B280 /* Scrobbler */,
 				800DD8BC21C6D1500071B280 /* Settings */,
 				80A879A121C5DE35009E72E4 /* AppDelegate.swift */,
@@ -445,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				800DD8D221CC06090071B280 /* LibreFmScrobbler.swift in Sources */,
+				803CB4AF21CC5D5E000D15B9 /* AccountsDataManager.swift in Sources */,
 				803CB47121CC4855000D15B9 /* Wailer.xcdatamodeld in Sources */,
 				80A879A421C5DE35009E72E4 /* DebugViewController.swift in Sources */,
 				800DD8D821CC0CAA0071B280 /* ConfirmAuthorizationViewController.swift in Sources */,

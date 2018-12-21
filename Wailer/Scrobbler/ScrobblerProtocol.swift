@@ -36,6 +36,7 @@ protocol ScrobblerTokenHandshakeProtocol {
 }
 
 extension ScrobblerProtocol {
+    
     static func openAuthUrl(token: String) {
         let url = self.urlAuth + token
         NSWorkspace.shared.open(URL.init(string: url)!)
