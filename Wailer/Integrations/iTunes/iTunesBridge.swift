@@ -7,16 +7,32 @@
 //
 
 import Cocoa
+import Foundation
+import ScriptingBridge
 
-class iTunesBridge: NSObject {
-    public let app = ScriptingUtilities.application(bundleIdentifier: "com.apple.iTunes") as! iTunesApplication
+class iTunesBridge: NSObject, SBApplicationDelegate {
     
-    public func getCurrentTrack() -> iTunesTrack? {
-        return app.currentTrack
+    public let app: iTunesApplication
+    
+    override required init() {
+        self.app = ScriptingUtilities.application(bundleIdentifier: "com.apple.iTunes") as! iTunesApplication
+        
+        super.init()
+        self.app.delegate = self
+        
+        // Observe iTunes player state changes
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onPlaybackChange), name: NSNotification.Name(rawValue: "com.apple.iTunes.playerInfo"), object: nil)
     }
     
-    public func printCurrentTrack() {
-        let currentTrack = app.currentTrack!
-        print("iTunesBridge: printCurrentTrack currentTrack=\(currentTrack)")
+    @objc public func onPlaybackChange() {
+        let currentTrack = self.app.currentTrack
+        let currentState = self.app.playerState
+        
+        print("iTunesBridge: CALL onPlaybackChange currentState=\(currentState) currentTrack\(currentTrack)")
+    }
+    
+    func eventDidFail(_ event: UnsafePointer<AppleEvent>, withError error: Error) -> Any? {
+        print("iTunesBridge: CALL eventDidFail error=\(error)")
+        return event
     }
 }
