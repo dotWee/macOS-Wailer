@@ -1,5 +1,5 @@
 //
-//  SettingsIntegrationsViewController.swift
+//  PreferencesTabViewController.swift
 //  Wailer
 //
 //  Created by Lukas Wolfsteiner on 16.12.18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsIntegrationsViewController: NSViewController {
+class PreferencesTabViewController: NSTabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  SettingsWindowController.swift
+//  PreferencesWindowController.swift
 //  Wailer
 //
 //  Created by Lukas Wolfsteiner on 16.12.18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsWindowController: NSWindowController {
+class PreferencesWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()

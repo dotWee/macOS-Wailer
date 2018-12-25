@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wPi-7X-6jg">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -683,7 +684,7 @@
         <!--Window Controller-->
         <scene sceneID="spu-dJ-MQR">
             <objects>
-                <windowController storyboardIdentifier="SettingsWindowController" id="wPi-7X-6jg" customClass="SettingsWindowController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="SettingsWindowController" id="wPi-7X-6jg" customClass="PreferencesWindowController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oxX-IG-7hu">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -699,18 +700,18 @@
                 </windowController>
                 <customObject id="16b-Df-5Ib" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="250"/>
+            <point key="canvasLocation" x="575" y="289"/>
         </scene>
-        <!--Settings Tab View Controller-->
+        <!--Preferences Tab View Controller-->
         <scene sceneID="pcS-be-4SC">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="V2o-7P-dMt" customClass="SettingsTabViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="V2o-7P-dMt" customClass="PreferencesTabViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Integrations" identifier="" image="NSComputer" id="48U-cc-eRu"/>
+                        <tabViewItem label="Player" identifier="" image="NSComputer" id="48U-cc-eRu"/>
                         <tabViewItem label="Accounts" image="NSUserAccounts" id="cBi-Bv-Nd4"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="8KB-p4-cli">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="301"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <connections>
@@ -725,20 +726,88 @@
                 </tabViewController>
                 <customObject id="R27-GK-4hA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="715"/>
+            <point key="canvasLocation" x="575" y="715.5"/>
         </scene>
-        <!--Integrations-->
+        <!--Player Preferences-->
         <scene sceneID="2pT-A0-umX">
             <objects>
-                <viewController title="Integrations" id="h57-cc-ilG" customClass="SettingsAccountViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Player Preferences" id="h57-cc-ilG" customClass="PlayerPreferencesViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PAN-2y-Bgs">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box title="Spotify" translatesAutoresizingMaskIntoConstraints="NO" id="DbK-DB-ksy">
+                                <rect key="frame" x="17" y="208" width="416" height="72"/>
+                                <view key="contentView" id="bfM-WT-vop">
+                                    <rect key="frame" x="3" y="3" width="410" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6mh-Lu-tuE">
+                                            <rect key="frame" x="18" y="18" width="374" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Scrobble from Spotify" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LTB-Gv-tNd">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="buttonSpotifyScrobbleActionHandler:" target="h57-cc-ilG" id="5BI-4k-FFb"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6mh-Lu-tuE" firstAttribute="leading" secondItem="bfM-WT-vop" secondAttribute="leading" constant="20" id="0yj-gk-c08"/>
+                                        <constraint firstAttribute="trailing" secondItem="6mh-Lu-tuE" secondAttribute="trailing" constant="20" id="CsG-VU-Tzw"/>
+                                        <constraint firstItem="6mh-Lu-tuE" firstAttribute="top" secondItem="bfM-WT-vop" secondAttribute="top" constant="20" id="Ot9-0w-0HU"/>
+                                        <constraint firstAttribute="bottom" secondItem="6mh-Lu-tuE" secondAttribute="bottom" constant="20" id="q9b-Kp-gSj"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <box title="iTunes" translatesAutoresizingMaskIntoConstraints="NO" id="4Fn-Uq-RPO">
+                                <rect key="frame" x="17" y="132" width="416" height="72"/>
+                                <view key="contentView" id="T5G-U7-b7K">
+                                    <rect key="frame" x="3" y="3" width="410" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-bT-9rq">
+                                            <rect key="frame" x="18" y="18" width="374" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Scrobble from iTunes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="rAu-th-cNo">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="buttonItunesScrobbleActionHandler:" target="h57-cc-ilG" id="4Bk-X9-crU"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="OAw-bT-9rq" secondAttribute="bottom" constant="20" id="5Xu-j8-Mns"/>
+                                        <constraint firstAttribute="trailing" secondItem="OAw-bT-9rq" secondAttribute="trailing" constant="20" id="WC8-4l-L4D"/>
+                                        <constraint firstItem="OAw-bT-9rq" firstAttribute="leading" secondItem="T5G-U7-b7K" secondAttribute="leading" constant="20" id="svK-UY-WsD"/>
+                                        <constraint firstItem="OAw-bT-9rq" firstAttribute="top" secondItem="T5G-U7-b7K" secondAttribute="top" constant="20" id="uOK-LL-gxe"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4Fn-Uq-RPO" secondAttribute="bottom" constant="20" id="APS-Ye-qG3"/>
+                            <constraint firstAttribute="trailing" secondItem="4Fn-Uq-RPO" secondAttribute="trailing" constant="20" id="MYS-YX-gVA"/>
+                            <constraint firstItem="DbK-DB-ksy" firstAttribute="top" secondItem="PAN-2y-Bgs" secondAttribute="top" constant="20" id="Uh0-zz-BjE"/>
+                            <constraint firstItem="DbK-DB-ksy" firstAttribute="top" secondItem="PAN-2y-Bgs" secondAttribute="top" constant="20" id="WkO-4q-S1Z"/>
+                            <constraint firstItem="DbK-DB-ksy" firstAttribute="leading" secondItem="PAN-2y-Bgs" secondAttribute="leading" constant="20" id="bRt-Nf-DDO"/>
+                            <constraint firstItem="4Fn-Uq-RPO" firstAttribute="top" secondItem="DbK-DB-ksy" secondAttribute="bottom" constant="8" id="dKE-H9-eeo"/>
+                            <constraint firstAttribute="trailing" secondItem="DbK-DB-ksy" secondAttribute="trailing" constant="20" id="hmD-uX-5dD"/>
+                            <constraint firstItem="4Fn-Uq-RPO" firstAttribute="leading" secondItem="PAN-2y-Bgs" secondAttribute="leading" constant="20" id="kHD-Bf-v7P"/>
+                            <constraint firstItem="DbK-DB-ksy" firstAttribute="leading" secondItem="PAN-2y-Bgs" secondAttribute="leading" constant="20" id="qX2-2r-SF8"/>
+                            <constraint firstAttribute="trailing" secondItem="DbK-DB-ksy" secondAttribute="trailing" constant="20" id="u7B-xe-Pmu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonItunesScrobble" destination="OAw-bT-9rq" id="nkx-gf-5hb"/>
+                        <outlet property="buttonSpotifyScrobble" destination="6mh-Lu-tuE" id="4PD-MM-ByK"/>
+                    </connections>
                 </viewController>
                 <customObject id="M3T-4h-u6j" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="1146"/>
+            <point key="canvasLocation" x="819" y="1146"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="QHs-XH-ZtE">
