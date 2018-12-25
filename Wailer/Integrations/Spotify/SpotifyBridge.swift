@@ -7,20 +7,38 @@
 //
 
 import Cocoa
+import ScriptingBridge
 
-class SpotifyBridge: NSObject {
-    public let app = ScriptingUtilities.application(bundleIdentifier: "com.spotify.client") as! SpotifyApplication
+class SpotifyBridge: NSObject, SBApplicationDelegate {
     
-    public func getCurrentTrack() -> SpotifyTrack? {
-        return app.currentTrack
+    func eventDidFail(_ event: UnsafePointer<AppleEvent>, withError error: Error) -> Any? {
+        print("SpotifyBridge: eventDidFail error=\(error)")
+        return event
     }
     
-    public func printCurrentTrack() {
-        let currentTrack = app.currentTrack!
+    public let app: SpotifyApplication
+    
+    override required init() {
+        self.app = ScriptingUtilities.application(bundleIdentifier: "com.spotify.client") as! SpotifyApplication
+        super.init()
         
-        let artist = currentTrack.artist!
-        let name = currentTrack.name!
-        
-        print("SpotifyBridge: printCurrentTrack artist=\(artist) name=\(name)")
+        self.app.delegate = self
+        print("SpotifyBridge: \(self.app.delegate.debugDescription)")
+    }
+    
+    public func play() {
+        self.app.play!()
+    }
+    
+    public func pause() {
+        self.app.pause!()
+    }
+    
+    public func getCurrentStatus() -> SpotifyEPlS? {
+        return self.app.playerState
+    }
+    
+    public func getCurrentTrack() -> SpotifyTrack? {
+        return self.app.currentTrack
     }
 }
