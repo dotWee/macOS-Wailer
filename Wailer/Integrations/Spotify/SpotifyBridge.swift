@@ -10,7 +10,7 @@ import Cocoa
 import Foundation
 import ScriptingBridge
 
-class SpotifyBridge: NSObject, SBApplicationDelegate {
+class SpotifyBridge: NSObject, SBApplicationDelegate, SBBridgeProtocol {
     
     public let app: SpotifyApplication
     
@@ -21,7 +21,7 @@ class SpotifyBridge: NSObject, SBApplicationDelegate {
         self.app.delegate = self
         
         // Observe Spotify player state changes
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onPlaybackChange), name: NSNotification.Name(rawValue: "com.spotify.client.PlaybackStateChanged"), object: nil)
+        // self.addPlaybackChangeListener()
     }
     
     @objc public func onPlaybackChange() {
@@ -34,5 +34,21 @@ class SpotifyBridge: NSObject, SBApplicationDelegate {
     func eventDidFail(_ event: UnsafePointer<AppleEvent>, withError error: Error) -> Any? {
         print("SpotifyBridge: CALL eventDidFail error=\(error)")
         return event
+    }
+    
+    func getApplication() -> SBApplicationProtocol {
+        return self.app
+    }
+    
+    func getCurrentTrack() -> SBObjectProtocol? {
+        return self.app.currentTrack
+    }
+    
+    func isPlaying() -> Bool {
+        return self.app.playerState == SpotifyEPlS.playing
+    }
+    
+    func addPlaybackChangeListener() {
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onPlaybackChange), name: NSNotification.Name(rawValue: "com.spotify.client.PlaybackStateChanged"), object: nil)
     }
 }

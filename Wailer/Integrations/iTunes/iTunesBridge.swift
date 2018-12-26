@@ -10,7 +10,7 @@ import Cocoa
 import Foundation
 import ScriptingBridge
 
-class iTunesBridge: NSObject, SBApplicationDelegate {
+class iTunesBridge: NSObject, SBApplicationDelegate, SBBridgeProtocol {
     
     public let app: iTunesApplication
     
@@ -21,7 +21,7 @@ class iTunesBridge: NSObject, SBApplicationDelegate {
         self.app.delegate = self
         
         // Observe iTunes player state changes
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onPlaybackChange), name: NSNotification.Name(rawValue: "com.apple.iTunes.playerInfo"), object: nil)
+        // self.addPlaybackChangeListener()
     }
     
     @objc public func onPlaybackChange() {
@@ -29,6 +29,22 @@ class iTunesBridge: NSObject, SBApplicationDelegate {
         let currentState = self.app.playerState
         
         print("iTunesBridge: CALL onPlaybackChange currentState=\(currentState) currentTrack\(currentTrack)")
+    }
+    
+    func getApplication() -> SBApplicationProtocol {
+        return self.app
+    }
+    
+    func getCurrentTrack() -> SBObjectProtocol? {
+        return self.app.currentTrack
+    }
+    
+    func isPlaying() -> Bool {
+        return self.app.playerState == iTunesEPlS.playing
+    }
+    
+    func addPlaybackChangeListener() {
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onPlaybackChange), name: NSNotification.Name(rawValue: "com.apple.iTunes.playerInfo"), object: nil)
     }
     
     func eventDidFail(_ event: UnsafePointer<AppleEvent>, withError error: Error) -> Any? {
