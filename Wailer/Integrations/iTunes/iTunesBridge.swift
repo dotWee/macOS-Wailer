@@ -21,7 +21,7 @@ class iTunesBridge: NSObject, SBApplicationDelegate, SBBridgeProtocol {
         self.app.delegate = self
         
         // Observe iTunes player state changes
-        // self.addPlaybackChangeListener()
+        self.addPlaybackChangeListener()
     }
     
     @objc public func onPlaybackChange() {

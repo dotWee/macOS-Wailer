@@ -21,7 +21,7 @@ class SpotifyBridge: NSObject, SBApplicationDelegate, SBBridgeProtocol {
         self.app.delegate = self
         
         // Observe Spotify player state changes
-        // self.addPlaybackChangeListener()
+        self.addPlaybackChangeListener()
     }
     
     @objc public func onPlaybackChange() {
