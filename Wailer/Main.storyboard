@@ -708,7 +708,7 @@
                 <splitViewController id="nag-h5-Ljz" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="PKE-Yr-2Mw"/>
-                        <splitViewItem id="rTt-Ij-8wb"/>
+                        <splitViewItem id="rkC-Lj-lXu"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="FHU-9f-xdT">
                         <rect key="frame" x="-76" y="0.0" width="600" height="300"/>
@@ -720,12 +720,39 @@
                     <connections>
                         <outlet property="splitView" destination="FHU-9f-xdT" id="YsK-Cx-MRX"/>
                         <segue destination="gvG-NR-3Po" kind="relationship" relationship="splitItems" id="0gM-cL-6RF"/>
-                        <segue destination="AMz-Fu-hjl" kind="relationship" relationship="splitItems" id="8gB-ru-lJw"/>
+                        <segue destination="r7Y-Yr-y7b" kind="relationship" relationship="splitItems" id="2eF-yN-fTm"/>
                     </connections>
                 </splitViewController>
                 <customObject id="gIW-El-70O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="759" y="756"/>
+        </scene>
+        <!--Main Content Page Controller-->
+        <scene sceneID="UjB-OU-Qwb">
+            <objects>
+                <pagecontroller id="r7Y-Yr-y7b" customClass="MainContentPageController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Of4-Rl-jwC">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="PMB-qY-lwz">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PMB-qY-lwz" secondAttribute="trailing" id="6aH-QX-ZV8"/>
+                            <constraint firstItem="PMB-qY-lwz" firstAttribute="leading" secondItem="Of4-Rl-jwC" secondAttribute="leading" id="ktw-af-Gje"/>
+                            <constraint firstAttribute="bottom" secondItem="PMB-qY-lwz" secondAttribute="bottom" id="l9Z-lZ-WRz"/>
+                            <constraint firstItem="PMB-qY-lwz" firstAttribute="top" secondItem="Of4-Rl-jwC" secondAttribute="top" id="lSK-MA-6Nm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sourceItemView" destination="PMB-qY-lwz" id="a5f-L8-w2s"/>
+                    </connections>
+                </pagecontroller>
+                <customObject id="nyR-uR-28G" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="883" y="1137"/>
         </scene>
         <!--Main Sidebar View Controller-->
         <scene sceneID="lzD-Va-Uas">
@@ -823,36 +850,6 @@
             </objects>
             <point key="canvasLocation" x="559" y="1137"/>
         </scene>
-        <!--Main Content-->
-        <scene sceneID="vuc-Wi-ADN">
-            <objects>
-                <viewController title="Main Content" id="AMz-Fu-hjl" customClass="MainContentViewControlller" sceneMemberID="viewController">
-                    <view key="view" id="gZA-oT-eAc">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="aaE-pu-2q5">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
-                                <connections>
-                                    <segue destination="i4Z-xa-lbd" kind="embed" id="0Yu-Ad-5RP"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="aaE-pu-2q5" firstAttribute="leading" secondItem="gZA-oT-eAc" secondAttribute="leading" id="CwS-O7-zb2"/>
-                            <constraint firstItem="aaE-pu-2q5" firstAttribute="top" secondItem="gZA-oT-eAc" secondAttribute="top" id="bYr-J9-ltw"/>
-                            <constraint firstAttribute="trailing" secondItem="aaE-pu-2q5" secondAttribute="trailing" id="fNo-Nl-Vfv"/>
-                            <constraint firstAttribute="bottom" secondItem="aaE-pu-2q5" secondAttribute="bottom" id="yAc-7r-gaS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="containerView" destination="aaE-pu-2q5" id="sPz-qt-wZG"/>
-                    </connections>
-                </viewController>
-                <customObject id="WtL-7s-9DD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="887" y="1137"/>
-        </scene>
         <!--Main Accounts View Controller-->
         <scene sceneID="138-vl-h90">
             <objects>
@@ -896,10 +893,37 @@
             </objects>
             <point key="canvasLocation" x="1320" y="1137"/>
         </scene>
+        <!--Main Preferences View Controller-->
+        <scene sceneID="djn-Fx-Euu">
+            <objects>
+                <viewController title="Main Preferences View Controller" storyboardIdentifier="MainPreferencesViewController" id="h7T-xA-egh" customClass="MainPreferencesViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="jHc-25-TlP">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EF9-8t-uDv">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                                <connections>
+                                    <segue destination="gsq-PF-CKi" kind="embed" id="6Qh-v8-Qf7"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EF9-8t-uDv" firstAttribute="top" secondItem="jHc-25-TlP" secondAttribute="top" id="30t-ZU-r2K"/>
+                            <constraint firstItem="EF9-8t-uDv" firstAttribute="leading" secondItem="jHc-25-TlP" secondAttribute="leading" id="9MT-Am-CpP"/>
+                            <constraint firstAttribute="trailing" secondItem="EF9-8t-uDv" secondAttribute="trailing" id="Dhc-Dn-y1M"/>
+                            <constraint firstAttribute="bottom" secondItem="EF9-8t-uDv" secondAttribute="bottom" id="eGz-zy-nOM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="jIn-s9-E94" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="1558"/>
+        </scene>
         <!--Player Preferences-->
         <scene sceneID="pLT-vI-YBg">
             <objects>
-                <viewController title="Player Preferences" storyboardIdentifier="PlayerPreferencesViewController" id="gsq-PF-CKi" customClass="PlayerPreferencesViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Player Preferences" id="gsq-PF-CKi" customClass="PlayerPreferencesViewController" customModule="Wailer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="r7H-OD-Grn">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -972,7 +996,7 @@
                 </viewController>
                 <customObject id="MQX-I3-dzZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="1558"/>
+            <point key="canvasLocation" x="1750" y="1558"/>
         </scene>
         <!--Confirm Authorization View Controller-->
         <scene sceneID="3AQ-T9-z4g">

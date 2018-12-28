@@ -12,8 +12,11 @@ class MainSidebarViewController: NSViewController {
 
     @IBOutlet weak var sidebar: NSOutlineView!
     
-    // Dummy data used for row titles
-    var items = ["Accounts", "Preferences"]
+    public static var SIDEBAR_ITEMS = [MainSidebarViewController.SIDEBAR_ACCOUNTS, MainSidebarViewController.SIDEBAR_PREFERENCES]
+    public static var SIDEBAR_ACCOUNTS = "Accounts"
+    public static var SIDEBAR_PREFERENCES = "Preferences"
+    
+    var mainWindowController: MainWindowController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +33,12 @@ extension MainSidebarViewController: NSOutlineViewDataSource {
     
     // Number of items in the sidebar
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        return items.count
+        return MainSidebarViewController.SIDEBAR_ITEMS.count
     }
     
     // Items to be added to sidebar
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return items[index]
+        return MainSidebarViewController.SIDEBAR_ITEMS[index]
     }
     
     // Whether rows are expandable by an arrow
@@ -95,8 +98,8 @@ extension MainSidebarViewController: NSOutlineViewDataSource {
     }
     
     func onSelection(index: Int) {
-        print("MainSidebarViewController: onSelection index=\(index) value=\(self.items[index])")
-        let itemValue = self.items[index]
+        print("MainSidebarViewController: onSelection index=\(index) value=\(MainSidebarViewController.SIDEBAR_ITEMS[index])")
+        let itemValue = MainSidebarViewController.SIDEBAR_ITEMS[index]
         
         if (self.view.window != nil && self.mainWindowController == nil) {
             self.mainWindowController = self.view.window?.windowController as? MainWindowController
@@ -104,13 +107,16 @@ extension MainSidebarViewController: NSOutlineViewDataSource {
         
         if (self.mainWindowController != nil) {
             switch itemValue {
-            case items[1]:
+            case MainSidebarViewController.SIDEBAR_ITEMS[1]:
                 // Preferences
+                print("MainSidebarViewController: onSelection PREFERENCES")
                 //self.mainWindowController?.onSidebarSelectionPreferences(self)
                 
-            case items[0]:
+            case MainSidebarViewController.SIDEBAR_ITEMS[0]:
                 // Accounts
+                print("MainSidebarViewController: onSelection ACCOUNTS")
                 //self.mainWindowController?.onSidebarSelectionAccounts(self)
+                
             default:
                 print("MainSidebarViewController: onSelection unknownValue=\(itemValue)")
             }

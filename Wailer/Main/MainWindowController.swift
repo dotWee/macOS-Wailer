@@ -11,7 +11,7 @@ import Cocoa
 class MainWindowController: NSWindowController {
     
     var mainSidebarViewController: MainSidebarViewController?
-    var mainContentViewController: MainContentViewController?
+    var mainContentPageController: MainContentPageController?
 
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -24,8 +24,8 @@ extension MainWindowController: MainSidebarActionProtocol {
     
     func onSidebarSelectionAccounts(_ sender: MainSidebarViewController) {
         print("MainWindowController: onSidebarSelectionAccounts")
-        if (mainContentViewController != nil) {
-            mainContentViewController?.onSidebarSelectionPreferences(sender)
+        if (mainContentPageController != nil) {
+            mainContentPageController?.onSidebarSelectionPreferences(sender)
         } else {
             print("MainWindowController: onSidebarSelectionAccounts NIL CONTROLLER")
         }
@@ -33,8 +33,8 @@ extension MainWindowController: MainSidebarActionProtocol {
     
     func onSidebarSelectionPreferences(_ sender: MainSidebarViewController) {
         print("MainWindowController: onSidebarSelectionPreferences")
-        if (mainContentViewController != nil) {
-            mainContentViewController?.onSidebarSelectionPreferences(sender)
+        if (mainContentPageController != nil) {
+            mainContentPageController?.onSidebarSelectionPreferences(sender)
         } else {
             print("MainWindowController: onSidebarSelectionPreferences NIL CONTROLLER")
         }
