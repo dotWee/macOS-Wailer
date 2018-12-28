@@ -17,6 +17,5 @@ class MainAccountsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainAccountsViewController: viewDidLoad")
-        
     }
 }

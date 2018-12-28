@@ -13,7 +13,7 @@ class MainSidebarViewController: NSViewController {
     @IBOutlet weak var sidebar: NSOutlineView!
     
     // Dummy data used for row titles
-    let items = ["Player Preferences", "Second item", "Third item"]
+    var items = ["Accounts", "Preferences"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class MainSidebarViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(windowLostFocus), name: NSApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowGainedFocus), name: NSApplication.willBecomeActiveNotification, object: nil)
     }
-    
 }
 
 
@@ -59,6 +58,8 @@ extension MainSidebarViewController: NSOutlineViewDataSource {
     
     // When a row is selected
     func outlineViewSelectionDidChange(_ notification: Notification) {
+        print("MainSidebarViewController: outlineViewSelectionDidChange")
+        
         if let outlineView = notification.object as? NSOutlineView {
             setRowColour(outlineView, true)
         }
@@ -94,8 +95,26 @@ extension MainSidebarViewController: NSOutlineViewDataSource {
     }
     
     func onSelection(index: Int) {
-        print("onSelection index=\(index)")
-
+        print("MainSidebarViewController: onSelection index=\(index) value=\(self.items[index])")
+        let itemValue = self.items[index]
+        
+        if (self.view.window != nil && self.mainWindowController == nil) {
+            self.mainWindowController = self.view.window?.windowController as? MainWindowController
+        }
+        
+        if (self.mainWindowController != nil) {
+            switch itemValue {
+            case items[1]:
+                // Preferences
+                //self.mainWindowController?.onSidebarSelectionPreferences(self)
+                
+            case items[0]:
+                // Accounts
+                //self.mainWindowController?.onSidebarSelectionAccounts(self)
+            default:
+                print("MainSidebarViewController: onSelection unknownValue=\(itemValue)")
+            }
+        }
     }
     
     func setInitialRowColour() {
